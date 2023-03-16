@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Your Portfolio</title>
+</head>
+<body>
+  <header>
+    <h1>Your Portfolio</h1>
+  </header>
+  <main>
+    <section class="portfolio-grid">
+      <!-- Add your portfolio items as divs with the 'portfolio-item' class -->
+      <div class="portfolio-item">
+        <img src="path/to/your/work1.jpg" alt="Work 1">
+      </div>
+      <div class="portfolio-item">
+        <img src="path/to/your/work2.jpg" alt="Work 2">
+      </div>
+      <!-- Add more portfolio items as needed -->
+    </section>
+  </main>
+  <footer>
+    <p>&copy; Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>

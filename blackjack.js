@@ -1,128 +1,22 @@
 class Card {
-  constructor(rank, suit) {
-    this.rank = rank;
-    this.suit = suit;
-  }
-
-  getValue() {
-    return this.rank.getValue();
-  }
-}
-
-class Rank {
-  constructor(name, value) {
-    this.name = name;
-    this.value = value;
-  }
-
-  getValue() {
-    return this.value;
-  }
-}
-
-class Suit {
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-class Deck {
-  constructor() {
-    this.cards = [];
-    this.suits = [
-      new Suit('HEARTS'),
-      new Suit('DIAMONDS'),
-      new Suit('CLUBS'),
-      new Suit('SPADES'),
-    ];
-    this.ranks = [
-      new Rank('ACE', 1),
-      new Rank('TWO', 2),
-      new Rank('THREE', 3),
-      new Rank('FOUR', 4),
-      new Rank('FIVE', 5),
-      new Rank('SIX', 6),
-      new Rank('SEVEN', 7),
-      new Rank('EIGHT', 8),
-      new Rank('NINE', 9),
-      new Rank('TEN', 10),
-      new Rank('JACK', 10),
-      new Rank('QUEEN', 10),
-      new Rank('KING', 10),
-    ];
-
-    for (const suit of this.suits) {
-      for (const rank of this.ranks) {
-        this.cards.push(new Card(rank, suit));
-      }
-    }
-  }
-
-  shuffle() {
-    for (let i = this.cards.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
-    }
-  }
-
-  drawCard() {
-    return this.cards.pop();
-  }
-}
-
-class Hand {
-  constructor() {
-    this.cards = [];
-  }
-
-  addCard(card) {
-    this.cards.push(card);
-  }
-
-  getCards() {
-    return this.cards;
-  }
-
-  getScore() {
-    let score = 0;
-    let aceCount = 0;
-    for (const card of this.cards) {
-      score += card.getValue();
-      if (card.rank.name === 'ACE') {
-        aceCount++;
-      }
-    }
-
-    // Handle Aces
-    while (score > 21 && aceCount > 0) {
-      score -= 10;
-      aceCount--;
-    }
-
-    return score;
-  }
-
-  toString() {
-    return this.cards.map(card => `${card.rank.name} of ${card.suit.name}`).join(', ');
-  }
-}
-
-function playBlackjack() {
-  const deck = new Deck();
-  deck.shuffle();
-
-  const playerHand = new Hand();
-  const dealerHand = new Hand();
-
-  // Initial deal
-  playerHand.addCard(deck.drawCard());
-  playerHand.addCard(deck.drawCard());
-  dealerHand.addCard(deck.drawCard());
-  dealerHand.addCard(deck.drawCard());
-
   // ...
 }
 
+class Rank {
+  // ...
+}
+
+class Suit {
+  // ...
+}
+
+class Deck {
+  // ...
+}
+
+class Hand {
+  // ...
+}
 
 function updateHandDisplay(handElement, hand) {
   handElement.innerHTML = hand.toString().replace(/,/g, '<br>');
@@ -140,6 +34,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
+  playBlackjack(); // Add this line to start the game when the modal is opened
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -209,5 +104,3 @@ function playBlackjack() {
   hitButton.disabled = false;
   standButton.disabled = false;
 }
-
-document

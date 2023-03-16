@@ -104,8 +104,11 @@ function playBlackjack() {
   hitButton.disabled = false;
   standButton.disabled = false;
 }
-const startButton = document.getElementById('start');
+document.addEventListener('DOMContentLoaded', () => {
+  const startButton = document.getElementById('start');
 
-startButton.addEventListener('click', () => {
-  playBlackjack();
+  startButton.addEventListener('click', () => {
+    playBlackjack();
+  });
 });
+

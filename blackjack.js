@@ -34,7 +34,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
- 
+  playBlackjack();
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -104,9 +104,4 @@ function playBlackjack() {
   hitButton.disabled = false;
   standButton.disabled = false;
 }
-const startButton = document.getElementById('start');
 
-startButton.addEventListener('click', () => {
-  playBlackjack();
-  startButton.disabled = true;
-});

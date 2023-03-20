@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="portfolio.css">
   <title>Portfolio - Your Name</title>
-  <script src="blackjack.js"></script> <!-- Add this line -->
+  <script src="blackjack.js"></script>
 </head>
 <body>
   <header>
@@ -22,9 +22,10 @@
       <h2>Portfolio</h2>
       <div class="grid-container">
         <div class="grid-item">
-          <img src="unnamed.jpg" alt="Project 1">
-          <h3>Project 1</h3>
-          <p>Short description of Project 1.</p>
+          <img src="path/to/blackjack_thumbnail.jpg" alt="Blackjack Game">
+          <h3>Blackjack Game</h3>
+          <p>Short description of the Blackjack Game.</p>
+          <button id="play-blackjack">Play Blackjack</button>
         </div>
         <div class="grid-item">
           <img src="path/to/project2_thumbnail.jpg" alt="Project 2">
@@ -38,5 +39,16 @@
   <footer>
     <p>&copy; Uday Albataineh. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const playBlackjackButton = document.getElementById('play-blackjack');
+      if (playBlackjackButton) {
+        playBlackjackButton.addEventListener('click', () => {
+          openBlackjack();
+        });
+      }
+    });
+  </script>
 </body>
 </html>

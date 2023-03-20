@@ -74,6 +74,18 @@ class Hand {
   }
 }
 
+function playBlackjack() {
+  const startButton = document.getElementById('start');
+
+  startButton.addEventListener('click', () => {
+    startGame();
+    startButton.disabled = true;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  playBlackjack();
+});
 
 function updateHandDisplay(handElement, hand) {
   handElement.innerHTML = hand.toString().replace(/,/g, '<br>');

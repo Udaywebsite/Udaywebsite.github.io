@@ -108,6 +108,14 @@ function startGame() {
       hitButton.disabled = true;
       standButton.disabled = true;
     }
+// Add this line right after the startGame function
+const startButton = document.getElementById('start');
+
+startButton.addEventListener('click', () => {
+  startGame();
+  startButton.disabled = true;
+});
+
   });
 
   standButton.addEventListener('click', () => {
@@ -138,9 +146,7 @@ function startGame() {
 
 
 
-  startButton.addEventListener('click', () => {
-    startGame();
-    startButton.disabled = true;
+  
   });
 });
 

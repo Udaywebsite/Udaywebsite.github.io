@@ -144,3 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.disabled = true;
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  startGame();
+});
+

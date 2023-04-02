@@ -80,12 +80,16 @@ function updateHandDisplay(handElement, hand) {
   handElement.innerHTML = hand.toString().replace(/,/g, '<br>');
 }
 
+const playerHand = new Hand();
+const dealerHand = new Hand();
+
 function startGame() {
   const deck = new Deck();
   deck.shuffle();
 
-  const playerHand = new Hand();
-  const dealerHand = new Hand();
+  // Clear hands
+  playerHand.cards = [];
+  dealerHand.cards = [];
 
   // Initial deal
   playerHand.addCard(deck.drawCard());
@@ -96,18 +100,10 @@ function startGame() {
   updateHandDisplay(document.getElementById('player-hand'), playerHand);
   updateHandDisplay(document.getElementById('dealer-hand'), dealerHand);
 
-  const hitButton = document.getElementById('hit');
-  const standButton = document.getElementById('stand');
+  hitButton.disabled = false;
+  standButton.disabled = false;
+}
 
-  hitButton.addEventListener('click', () => {
-    playerHand.addCard(deck.drawCard());
-    updateHandDisplay(document.getElementById('player-hand'), playerHand);
-
-    if (playerHand.getScore() > 21) {
-      document.getElementById('result').innerHTML = 'Bust! You lose.';
-      hitButton.disabled = true;
-      standButton.disabled = true;
-    }
 const startButton = document.getElementById('start');
 
 startButton.addEventListener('click', () => {
@@ -117,6 +113,7 @@ startButton.addEventListener('click', () => {
 
 const hitButton = document.getElementById('hit');
 const standButton = document.getElementById('stand');
+
 
 hitButton.addEventListener('click', () => {
   playerHand.addCard(deck.drawCard());

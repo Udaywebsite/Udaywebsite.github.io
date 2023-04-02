@@ -136,8 +136,7 @@ function startGame() {
   standButton.disabled = false;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const startButton = document.getElementById('start');
+
 
   startButton.addEventListener('click', () => {
     startGame();

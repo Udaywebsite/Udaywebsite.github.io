@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 class Card {
   constructor(rank, suit) {
     this.rank = rank;
@@ -146,4 +148,6 @@ standButton.addEventListener('click', () => {
 
   hitButton.disabled = true;
   standButton.disabled = true;
+});
+
 });

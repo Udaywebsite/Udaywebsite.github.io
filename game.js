@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startButton.addEventListener('click', () => {
     startGame();
-    startButton.disabled = false;
+    startButton.disabled = true;
   });
 });
 

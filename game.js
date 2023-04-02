@@ -114,7 +114,6 @@ startButton.addEventListener('click', () => {
 const hitButton = document.getElementById('hit');
 const standButton = document.getElementById('stand');
 
-
 hitButton.addEventListener('click', () => {
   playerHand.addCard(deck.drawCard());
   updateHandDisplay(document.getElementById('player-hand'), playerHand);

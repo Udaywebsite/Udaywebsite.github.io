@@ -108,7 +108,6 @@ function startGame() {
       hitButton.disabled = true;
       standButton.disabled = true;
     }
-// Add this line right after the startGame function
 const startButton = document.getElementById('start');
 
 startButton.addEventListener('click', () => {
@@ -116,39 +115,38 @@ startButton.addEventListener('click', () => {
   startButton.disabled = true;
 });
 
-  });
+const hitButton = document.getElementById('hit');
+const standButton = document.getElementById('stand');
 
-  standButton.addEventListener('click', () => {
-    while (dealerHand.getScore() < 17) {
-      dealerHand.addCard(deck.drawCard());
-    }
-    updateHandDisplay(document.getElementById('dealer-hand'), dealerHand);
+hitButton.addEventListener('click', () => {
+  playerHand.addCard(deck.drawCard());
+  updateHandDisplay(document.getElementById('player-hand'), playerHand);
 
-    const result = document.getElementById('result');
-
-    if (dealerHand.getScore() > 21) {
-      result.innerHTML = "Dealer busts! You win.";
-    } else if (playerHand.getScore() > dealerHand.getScore()) {
-      result.innerHTML = "You win!";
-    } else if (playerHand.getScore() < dealerHand.getScore()) {
-      result.innerHTML = "You lose.";
-    } else {
-      result.innerHTML = "It's a tie.";
-    }
-
+  if (playerHand.getScore() > 21) {
+    document.getElementById('result').innerHTML = 'Bust! You lose.';
     hitButton.disabled = true;
     standButton.disabled = true;
-  });
-
-  hitButton.disabled = false;
-  standButton.disabled = false;
-}
-
-
-
-  
-  });
+  }
 });
 
+standButton.addEventListener('click', () => {
+  while (dealerHand.getScore() < 17) {
+    dealerHand.addCard(deck.drawCard());
+  }
+  updateHandDisplay(document.getElementById('dealer-hand'), dealerHand);
 
+  const result = document.getElementById('result');
 
+  if (dealerHand.getScore() > 21) {
+    result.innerHTML = "Dealer busts! You win.";
+  } else if (playerHand.getScore() > dealerHand.getScore()) {
+    result.innerHTML = "You win!";
+  } else if (playerHand.getScore() < dealerHand.getScore()) {
+    result.innerHTML = "You lose.";
+  } else {
+    result.innerHTML = "It's a tie.";
+  }
+
+  hitButton.disabled = true;
+  standButton.disabled = true;
+});

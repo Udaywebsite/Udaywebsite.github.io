@@ -82,9 +82,10 @@ function updateHandDisplay(handElement, hand) {
 
 const playerHand = new Hand();
 const dealerHand = new Hand();
+const deck = new Deck(); // Move the deck variable to the global scope
 
 function startGame() {
-  const deck = new Deck();
+  deck.cards = []; // Clear deck before shuffling
   deck.shuffle();
 
   // Clear hands

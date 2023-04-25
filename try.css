@@ -38,10 +38,11 @@ h2 {
 }
 
 .profile-picture {
-  width: 200px;
-  height: auto;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 1rem;
+  object-fit: cover;
 }
 
 footer {

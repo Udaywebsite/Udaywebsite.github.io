@@ -107,6 +107,40 @@ footer {
   }
 }
 
+/* Continue from the existing CSS, adding the following */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.flex-item, .bio {
+    flex: 1;
+    min-width: 48%; /* Ensures that items are responsive but also stay side-by-side where possible */
+    margin: 10px;
+}
+
+.bio, .flex-item {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .flex-item, .bio {
+        min-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
 .fadeIn {
   animation: fadeIn 1s ease-in-out;
 }

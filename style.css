@@ -5,47 +5,70 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
+  background-color: #f4f4f4;
 }
 
 header {
-  padding: 1rem;
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  padding-bottom: 1rem;
 }
 
 nav a {
-  color: #333;
+  color: white;
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
 }
 
-nav a:hover {
-  color: #1a73e8;
+nav a:hover, nav a:focus {
+  background-color: #1a73e8;
+  border-radius: 5px;
 }
 
 main {
   padding: 2rem;
+  max-width: 800px;
+  margin: auto;
 }
 
 h2 {
+  color: #1a73e8;
   margin-bottom: 1rem;
 }
 
-.portfolio-item {
-  background-color: #f1f1f1;
+.portfolio-item, #about, #resume, #contact {
+  background-color: white;
   padding: 1rem;
   margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 5px;
 }
 
 footer {
-  background-color: #f1f1f1;
-  padding: 1rem;
+  background-color: #333;
+  color: white;
   text-align: center;
+  padding: 1rem;
   margin-top: 2rem;
+}
+
+/* Additional styling for links in the body for visual consistency */
+main a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
 }

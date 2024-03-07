@@ -72,14 +72,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function openModal(modalId) {
-    var modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = "block";
-        // Check if it's the Blackjack modal being opened
-        if (modalId === "blackjackModal") {
-            initializeBlackjackGame();
+document.addEventListener('DOMContentLoaded', () => {
+    // Other initialization code...
+    
+    // Modal functionality for project showcases
+    document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('click', function() {
+            const modalId = this.getAttribute('data-modal');
+            if (modalId) {
+                openModal(modalId);
+            }
+        });
+    });
+
+    // Define openModal function
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
+            // Initialize the Blackjack game if its modal is opened
+            if (modalId === "blackjackModal") {
+                initializeBlackjackGame();
+            }
         }
     }
-}
+
+    // Close modal logic...
+});
 

@@ -1,63 +1,58 @@
-/* General styles */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
+/* Updated Blackjack styles to match the SPA design */
 
-/* Center the game container */
 #game {
-  width: 600px;
-  margin: 50px auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aligning font with the site */
+    max-width: 600px; /* Adjusting width for modal */
+    margin: 20px auto; /* Centering within modal */
+    background-color: #fff; /* Maintaining consistency */
+    border: 1px solid #ccc; /* Soft border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding for aesthetics */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Consistent shadow */
 }
 
-/* Headers */
 h1, h2 {
-  margin-bottom: 1rem;
+    color: #333; /* Heading color */
+    text-align: center; /* Centering headings */
+    margin: 10px 0; /* Adjusting margin for space */
 }
 
-/* Hand display */
 #player-hand, #dealer-hand {
-  margin-bottom: 1rem;
+    text-align: center; /* Centering cards */
+    margin-bottom: 20px; /* Space below hands */
 }
 
-/* Controls */
 #controls {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: center; /* Centering buttons */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Space above controls */
 }
 
 button {
-  background-color: #1a73e8;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 3px;
-  font-size: 1rem;
-  cursor: pointer;
-  outline: none;
+    background-color: #1a73e8; /* Primary button color */
+    color: #fff; /* Button text color */
+    padding: 10px 15px; /* Button padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded button edges */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth color transition */
 }
 
 button:hover {
-  background-color: #155eb6;
+    background-color: #155eb6; /* Darker on hover */
 }
 
 button:disabled {
-  background-color: #ccc;
-  cursor: default;
+    background-color: #ccc; /* Disabled button color */
+    cursor: not-allowed; /* Indicate disabled state */
 }
 
-/* Result */
 #result {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
+    text-align: center; /* Centering result text */
+    font-size: 1.2rem; /* Result text size */
+    font-weight: bold; /* Bold result text */
+    color: #333; /* Result text color */
+    margin-top: 20px; /* Space above result */
 }

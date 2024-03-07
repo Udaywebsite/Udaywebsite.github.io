@@ -12,13 +12,13 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #1a73e8 0%, #4d9f0c 100%);
+  background-color: #444; /* Adjusted for a more subtle look */
   color: white;
   padding: 20px 0;
+  text-align: center;
 }
 
 header h1 {
-  text-align: center;
   margin: 0;
 }
 
@@ -34,37 +34,44 @@ nav a {
   margin: 0 15px;
   padding: 7px 14px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #666; /* Subtle hover effect */
+  transform: translateY(-2px);
 }
 
 .hero {
-  background: url('path-to-hero-image.jpg') no-repeat center center/cover;
-  color: white;
-  padding: 100px 20px;
+  color: #fff;
+  padding: 60px 20px;
+  background: #333; /* Simplified background for readability */
   text-align: center;
 }
 
 .hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
 }
 
 .main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
   padding: 20px;
+}
+
+.profile-pic {
+  max-width: 150px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
 }
 
 .card {
   background: white;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -74,7 +81,7 @@ nav a:hover {
 }
 
 footer {
-  background: #333;
+  background: #444; /* Coordinated with header */
   color: white;
   text-align: center;
   padding: 20px;
@@ -82,18 +89,8 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
+  .hero, .main {
+    grid-template-columns: 1fr;
   }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fadeIn {
-  animation-name: fadeIn;
-  animation-duration: 1.5s;
 }
 

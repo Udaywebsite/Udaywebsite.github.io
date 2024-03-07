@@ -188,4 +188,4 @@ function initializeBlackjackGame() {
 
   updateMoneyDisplay(); // Initial call to display total money at game start
 });
-}
+

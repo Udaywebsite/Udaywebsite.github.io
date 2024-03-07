@@ -1,3 +1,5 @@
+function initializeBlackjackGame() {
+
 document.addEventListener('DOMContentLoaded', () => {
 
   let totalMoney = parseInt(prompt("How much money do you have?", "100"), 10);
@@ -186,3 +188,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateMoneyDisplay(); // Initial call to display total money at game start
 });
+}

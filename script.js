@@ -3,14 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
-      const section = document.querySelector(`#${this.getAttribute('data-section')}`);
-      section.scrollIntoView({ behavior: 'smooth' });
+      const sectionId = this.getAttribute('data-section');
+      const section = document.querySelector(`#${sectionId}`);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
-  // Dynamic content loading (example for Resume section)
+  // Dynamic content loading for Resume section
   document.querySelector('[data-section="resume"]').addEventListener('click', () => {
-    fetch('resume.html') // Assume you have a 'resume.html' partial to load
+    fetch('resume.html') // Assuming 'resume.html' is a partial
       .then(response => response.text())
       .then(html => {
         document.querySelector('#resume').innerHTML = html;
@@ -47,4 +50,33 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.removeChild(lightbox);
     });
   });
+
+  // Modal functionality for project showcases
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    modal.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal') || e.target.classList.contains('close')) {
+        this.style.display = 'none';
+      }
+    });
+  });
+
+  // Open project modal
+  window.openProjectModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  };
+
+  // Close project modal
+  window.closeModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Optional: Add additional JavaScript for other interactive features or dynamic content loading as needed.
 });
+

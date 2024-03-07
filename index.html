@@ -62,7 +62,33 @@
             <span class="close" onclick="closeModal('blackjackModal')">&times;</span>
             <h2>Blackjack Game</h2>
             <div id="gameContainer">
-                <!-- Game's HTML structure goes here -->
+
+
+
+                
+                <div id="blackjackModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('blackjackModal')">&times;</span>
+        <h2>Blackjack Game</h2>
+        <div id="game">
+            <h1>Blackjack</h1>
+            <div id="money">Total Money: $100</div>
+            <div>
+                <h2>Your Hand:</h2>
+                <div id="player-hand"></div>
+                <h2>Dealer's Hand:</h2>
+                <div id="dealer-hand"></div>
+            </div>
+            <div id="controls">
+                <button id="hit" disabled>Hit</button>
+                <button id="stand" disabled>Stand</button>
+                <button id="start">Start Game</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+</div>
+
                 <!-- Ensure your game's initialization is triggered when this modal is opened -->
             </div>
         </div>

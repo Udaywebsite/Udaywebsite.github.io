@@ -25,15 +25,28 @@
                 <p>Beyond his technical prowess, Uday embodies the essence of a problem solver and an adept team player. He takes pride in his capacity to distill complex concepts into comprehensible terms and to foster collaboration among cross-functional teams towards achieving shared objectives. His dedication to a strong work ethic, an ongoing commitment to continuous learning, and a boundless curiosity about the latest technological trends are the hallmarks of his professional persona.</p>
                 <p>Uday's technical curiosity is matched by his personal pursuits. An enthusiast of working out and video gaming, he exemplifies a well-rounded individual who values both mental and physical well-being, alongside leisure and entertainment. His passion for technology extends into his personal life, where he has enjoyed assembling his own PC, a testament to his hands-on approach and love for exploring new technological frontiers.</p>
                 <p>Uday Albataineh is keen to bring his wealth of skills and expertise to a visionary organization, aspiring to make a profound impact on the development of innovative solutions that tackle real-world problems. His journey is one of perpetual learning and growth, with a steadfast commitment to staying abreast of the ever-evolving landscape of computer science. Uday is poised to drive positive change and leave an indelible mark through the transformative power of technology.</p>
+
             </div>
         </section>
         <section id="portfolio" class="fadeIn">
             <h2>Portfolio</h2>
             <div class="projects">
-                <div class="project" onclick="openProjectModal('project1Modal')">Project 1 - Description Here</div>
-                <div class="project" onclick="openProjectModal('project2Modal')">Project 2 - Description Here</div>
-                <div class="project" onclick="openProjectModal('blackjackModal')">Blackjack Game - Click to Play</div>
-                <div class="project" onclick="openProjectModal('project4Modal')">Project 4 - Description Here</div>
+                <!-- Assigning IDs for modals related to projects -->
+                <div class="project" data-modal="project1Modal">Project 1 - Description Here</div>
+                <div class="project" data-modal="project2Modal">Project 2 - Description Here</div>
+                <div class="project" data-modal="blackjackModal">Blackjack Game - Click to Play</div>
+                <div class="project" data-modal="project4Modal">Project 4 - Description Here</div>
+            </div>
+            <!-- Modal templates for each project, initially hidden -->
+            <div id="project1Modal" class="modal">
+                <!-- Modal content for Project 1 -->
+            </div>
+            <div id="project2Modal" class="modal">
+                <!-- Modal content for Project 2 -->
+            </div>
+            <!-- Blackjack Modal already included -->
+            <div id="project4Modal" class="modal">
+                <!-- Modal content for Project 4 -->
             </div>
         </section>
         <section id="resume" class="flex-item">
@@ -48,15 +61,6 @@
     <footer>
         <p>&copy; 2024 Uday Albataineh. All rights reserved.</p>
     </footer>
-    <!-- Modal Structure for Blackjack Game (Example) -->
-    <div id="blackjackModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('blackjackModal')">&times;</span>
-            <h2>Blackjack Game</h2>
-            <!-- Embed or link to your Blackjack game here -->
-            <p>This is where the game will be loaded...</p>
-        </div>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>

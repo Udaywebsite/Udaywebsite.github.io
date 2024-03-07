@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  let totalMoney = parseInt(prompt("How much money do you have?", "100"), 10);
+  // Ensure totalMoney is a number. If not, set a default value.
+  if (isNaN(totalMoney) || totalMoney <= 0) {
+    totalMoney = 100; // Default amount if invalid input is given
+  }
+  let betAmount = 0;
+
   class Card {
     constructor(rank, suit) {
       this.rank = rank;
@@ -81,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initialize game state variables
   let playerHand = new Hand();
   let dealerHand = new Hand();
   const deck = new Deck();
@@ -90,7 +96,19 @@ document.addEventListener('DOMContentLoaded', () => {
     handElement.innerHTML = hand.toString();
   }
 
+  function updateMoneyDisplay() {
+    document.getElementById('money').innerHTML = `Total Money: $${totalMoney}`;
+  }
+
   function startGame() {
+    let bet = prompt("How much would you like to bet?");
+    betAmount = parseInt(bet, 10);
+    // Ensure betAmount is a number and within the player's total money
+    if (isNaN(betAmount) || betAmount <= 0 || betAmount > totalMoney) {
+      alert("Invalid bet amount. Please enter a valid number within your total money.");
+      return;
+    }
+
     deck.initialize(); // Reinitialize the deck
 
     playerHand = new Hand(); // Reset player's hand
@@ -107,12 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('hit').disabled = false;
     document.getElementById('stand').disabled = false;
-    document.getElementById('result').innerHTML = ''; // Clear any previous result
-    document.getElementById('start').disabled = true; // Disable start button after game starts
+    document.getElementById('result').innerHTML = '';
+    document.getElementById('start').disabled = true;
   }
 
-  // Event listeners for game controls
-  document.getElementById('start').addEventListener('click', startGame);
+  document.getElementById('start').addEventListener('click', () => {
+    if (totalMoney > 0) {
+      startGame();
+      updateMoneyDisplay();
+    } else {
+      alert("You're out of money! Game over.");
+    }
+  });
 
   document.getElementById('hit').addEventListener('click', () => {
     playerHand.addCard(deck.drawCard());
@@ -120,9 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (playerHand.getScore() > 21) {
       document.getElementById('result').innerHTML = 'Bust! You lose.';
+      totalMoney -= betAmount;
+      updateMoneyDisplay();
+
       document.getElementById('hit').disabled = true;
       document.getElementById('stand').disabled = true;
-      document.getElementById('start').disabled = false; // Re-enable start button
+      document.getElementById('start').disabled = false;
     }
   });
 
@@ -138,18 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (dealerScore > 21) {
       resultText = "Dealer busts! You win.";
+      totalMoney += betAmount;
     } else if (playerScore > dealerScore) {
       resultText = "You win!";
+      totalMoney += betAmount;
     } else if (playerScore < dealerScore) {
       resultText = "You lose.";
+      totalMoney -= betAmount;
     } else {
       resultText = "It's a tie.";
     }
 
     document.getElementById('result').innerHTML = resultText;
+    updateMoneyDisplay();
+
     document.getElementById('hit').disabled = true;
     document.getElementById('stand').disabled = true;
-    document.getElementById('start').disabled = false; // Re-enable start button to allow a new game
+    document.getElementById('start').disabled = false;
   });
 
+  updateMoneyDisplay(); // Initial call to display total money at game start
 });

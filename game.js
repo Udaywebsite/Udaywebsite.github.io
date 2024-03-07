@@ -6,7 +6,7 @@ function initializeBlackjackGame() {
   // Ensure totalMoney is a number. If not, set a default value.
   if (isNaN(totalMoney) || totalMoney <= 0) {
     totalMoney = 100; // Default amount if invalid input is given
-  
+  }
   let betAmount = 0;
 
   class Card {

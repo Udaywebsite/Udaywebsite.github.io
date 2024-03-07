@@ -72,4 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "block";
+        // Check if it's the Blackjack modal being opened
+        if (modalId === "blackjackModal") {
+            initializeBlackjackGame();
+        }
+    }
+}
 

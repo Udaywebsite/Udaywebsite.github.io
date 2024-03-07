@@ -99,4 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close modal logic...
 });
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
 

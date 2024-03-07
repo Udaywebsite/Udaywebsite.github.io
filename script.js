@@ -3,25 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
-      const sectionId = this.getAttribute('data-section');
-      const section = document.querySelector(`#${sectionId}`);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // Dynamic content loading for Resume section
-  document.querySelector('[data-section="resume"]').addEventListener('click', () => {
-    fetch('resume.html') // Assuming 'resume.html' is a partial
-      .then(response => response.text())
-      .then(html => {
-        document.querySelector('#resume').innerHTML = html;
-      })
-      .catch(error => console.error('Error loading the resume section:', error));
-  });
-
-  // Lightbox for profile picture
+  // Initialize lightbox for profile picture
   const profilePic = document.querySelector('.profile-pic');
   profilePic.addEventListener('click', () => {
     const lightbox = document.createElement('div');
@@ -35,48 +25,51 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.style.display = 'flex';
     lightbox.style.justifyContent = 'center';
     lightbox.style.alignItems = 'center';
-    lightbox.style.zIndex = '1000';
+    lightbox.style.zIndex = '2000';
 
     const img = new Image();
-    img.src = profilePic.src;
-    img.style.maxWidth = '80%';
+    img.src = profilePic.getAttribute('src');
+    img.style.maxWidth = '50%';
     img.style.maxHeight = '80%';
-    img.style.borderRadius = '50%';
+    img.style.borderRadius = '5%';
 
     lightbox.appendChild(img);
     document.body.appendChild(lightbox);
 
-    lightbox.addEventListener('click', () => {
-      document.body.removeChild(lightbox);
-    });
-  });
-
-  // Modal functionality for project showcases
-  const modals = document.querySelectorAll('.modal');
-  modals.forEach(modal => {
-    modal.addEventListener('click', function(e) {
-      if (e.target.classList.contains('modal') || e.target.classList.contains('close')) {
-        this.style.display = 'none';
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== img) {
+        lightbox.style.display = 'none';
+        document.body.removeChild(lightbox);
       }
     });
   });
 
-  // Open project modal
-  window.openProjectModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'block';
-    }
-  };
+  // Modal functionality for project showcases
+  document.querySelectorAll('.project').forEach(project => {
+    project.addEventListener('click', function() {
+      const modalId = this.getAttribute('data-modal');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'block';
+      }
+    });
+  });
 
-  // Close project modal
-  window.closeModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'none';
-    }
-  };
+  // Close modals
+  document.querySelectorAll('.modal .close').forEach(closeButton => {
+    closeButton.addEventListener('click', function() {
+      this.parentElement.parentElement.style.display = 'none';
+    });
+  });
 
-  // Optional: Add additional JavaScript for other interactive features or dynamic content loading as needed.
+  // Clicking outside to close modals
+  window.addEventListener('click', function(e) {
+    document.querySelectorAll('.modal').forEach(modal => {
+      if (e.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
 });
+
 

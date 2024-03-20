@@ -40,8 +40,19 @@
             </div>
             <!-- Modal templates for each project, initially hidden -->
             <div id="project1Modal" class="modal">
-                <!-- Modal content for Project 1 -->
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('project1Modal')">&times;</span>
+                    <h2>Article Veracity Checker</h2>
+                    <form id="articleCheckForm">
+                        <textarea id="articleTextInput" rows="10" cols="50" placeholder="Paste the news article text here..."></textarea>
+                        <br>
+                        <button type="submit">Check Article</button>
+                    </form>
+                  <p id="articleCheckResult"></p>
+                </div>
             </div>
+
+           
             <div id="project2Modal" class="modal">
                 <!-- Modal content for Project 2 -->
             </div>

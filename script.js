@@ -106,3 +106,22 @@ function closeModal(modalId) {
     }
 }
 
+document.getElementById('articleCheckForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const articleText = document.getElementById('articleTextInput').value;
+    fetch('YOUR_FLASK_APP_ENDPOINT/check_article', { // Replace YOUR_FLASK_APP_ENDPOINT with your actual back-end endpoint
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({article: articleText}),
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('articleCheckResult').innerText = `This article is likely: ${data.prediction ? 'True' : 'False'}`;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        document.getElementById('articleCheckResult').innerText = 'Error checking the article.';
+    });
+});
